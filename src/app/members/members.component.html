@@ -1,0 +1,18 @@
+<div class="main">
+    <h1 class="heading">Members</h1>
+    <div class="addItemCon">
+        <input placeholder="Add Member" class="addMemText" [(ngModel)]="newMember" (keyup.enter)="addMember()" />
+        <button (click)="addMember()" >Add</button>
+    </div>
+    <div class="itemsListCon">
+        <h4 *ngIf="members.length <= 0; else loopTemp">No Data Found</h4>
+        <ng-template #loopTemp>
+            <ul>
+                <li *ngFor="let i of members; let ind = index">
+                    {{ i }}
+                    <span (click)="removeMember(ind)">close</span>
+                </li>
+            </ul>
+        </ng-template>
+    </div>
+</div>
